@@ -27,11 +27,9 @@ class _homepageState extends State<homepage> {
             Flexible(
               child: ListView.builder(
                 itemCount: hehe.length,
-                itemBuilder: ((context, index) => ListTile(
-                      title: Text(
-                        hehe[index],
-                        style: TextStyle(color: textcolor),
-                      ),
+                itemBuilder: ((context, index) => Container(
+                      height: 200,
+                      width: MediaQuery.of(context).size.width - 20,
                     )),
               ),
             ),
