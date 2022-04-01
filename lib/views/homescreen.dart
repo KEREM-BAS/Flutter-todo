@@ -38,11 +38,24 @@ class _homepageState extends State<homepage> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         height: 75,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 20, right: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                hehe[index],
+                                style: TextStyle(color: textcolor),
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     )),
               ),
             ),
             TextField(
+              style: TextStyle(color: textcolor),
               controller: t1,
             ),
             FloatingActionButton(onPressed: add)
