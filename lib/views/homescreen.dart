@@ -1,8 +1,10 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:todo/config/colors.dart';
 
 class homepage extends StatefulWidget {
-  homepage({Key? key}) : super(key: key);
+  const homepage({Key? key}) : super(key: key);
 
   @override
   State<homepage> createState() => _homepageState();
@@ -21,15 +23,22 @@ class _homepageState extends State<homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: maincolor,
-      body: Container(
+      body: Padding(
+        padding: const EdgeInsets.only(top: 30),
         child: Column(
           children: [
             Flexible(
               child: ListView.builder(
                 itemCount: hehe.length,
-                itemBuilder: ((context, index) => Container(
-                      height: 200,
-                      width: MediaQuery.of(context).size.width - 20,
+                itemBuilder: ((context, index) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: secendcolor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        height: 75,
+                      ),
                     )),
               ),
             ),
