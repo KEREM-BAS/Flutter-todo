@@ -16,17 +16,39 @@ class _homepageState extends State<homepage> {
   add() {
     setState(() {
       hehe.add(t1.text);
+      t1.clear();
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: add,
+        child: const Icon(
+          Icons.add,
+          size: 40,
+        ),
+      ),
       backgroundColor: maincolor,
       body: Padding(
         padding: const EdgeInsets.only(top: 30),
         child: Column(
           children: [
+            TextField(
+              decoration: InputDecoration(
+                enabled: false,
+                hintText: "Task",
+                fillColor: textcolor,
+                filled: true,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              style: const TextStyle(color: secendcolor),
+              controller: t1,
+            ),
             Flexible(
               child: ListView.builder(
                 itemCount: hehe.length,
@@ -52,7 +74,7 @@ class _homepageState extends State<homepage> {
                                 icon: Icon(Icons.remove),
                                 onPressed: () {
                                   setState(() {
-                                    hehe.remove(index);
+                                    hehe.removeAt(index);
                                   });
                                 },
                               )
@@ -63,11 +85,6 @@ class _homepageState extends State<homepage> {
                     )),
               ),
             ),
-            TextField(
-              style: TextStyle(color: textcolor),
-              controller: t1,
-            ),
-            FloatingActionButton(onPressed: add)
           ],
         ),
       ),
