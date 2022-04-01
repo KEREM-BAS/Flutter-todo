@@ -46,6 +46,15 @@ class _homepageState extends State<homepage> {
                               Text(
                                 hehe[index],
                                 style: TextStyle(color: textcolor),
+                              ),
+                              IconButton(
+                                color: Colors.red,
+                                icon: Icon(Icons.remove),
+                                onPressed: () {
+                                  setState(() {
+                                    hehe.remove(index);
+                                  });
+                                },
                               )
                             ],
                           ),
