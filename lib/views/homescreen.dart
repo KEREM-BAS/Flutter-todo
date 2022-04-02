@@ -27,29 +27,34 @@ class _homepageState extends State<homepage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: secendcolor,
         onPressed: add,
-        child: const Icon(
+        child: Icon(
           Icons.add,
           size: 40,
         ),
       ),
       backgroundColor: maincolor,
       body: Padding(
-        padding: const EdgeInsets.only(top: 30),
+        padding: EdgeInsets.only(top: 30),
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.only(left: 10, right: 10),
               child: TextField(
+                cursorColor: secendcolor,
                 decoration: InputDecoration(
-                  enabled: false,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide(color: secendcolor),
+                  ),
                   hintText: "Task",
                   fillColor: textcolor,
                   filled: true,
+                  focusColor: secendcolor,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                style: const TextStyle(color: secendcolor),
+                style: TextStyle(color: secendcolor),
                 controller: t1,
               ),
             ),
@@ -57,7 +62,7 @@ class _homepageState extends State<homepage> {
               child: ListView.builder(
                 itemCount: hehe.length,
                 itemBuilder: ((context, index) => Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Container(
                         decoration: BoxDecoration(
                           color: secendcolor,
@@ -65,17 +70,17 @@ class _homepageState extends State<homepage> {
                         ),
                         height: 75,
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
+                          padding: EdgeInsets.only(left: 20, right: 20),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 hehe[index],
-                                style: const TextStyle(color: textcolor),
+                                style: TextStyle(color: textcolor),
                               ),
                               IconButton(
                                 color: Colors.red,
-                                icon: const Icon(Icons.remove),
+                                icon: Icon(Icons.remove),
                                 onPressed: () {
                                   setState(() {
                                     hehe.removeAt(index);
