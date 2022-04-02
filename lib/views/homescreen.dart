@@ -1,6 +1,5 @@
-// ignore_for_file: camel_case_types
-
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/config/colors.dart';
 
 class homepage extends StatefulWidget {
@@ -12,11 +11,17 @@ class homepage extends StatefulWidget {
 
 class _homepageState extends State<homepage> {
   TextEditingController t1 = TextEditingController();
-  List hehe = [];
+  List<String> hehe = [];
+  Future asd() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList('tasks', hehe);
+  }
+
   add() {
     setState(() {
       hehe.add(t1.text);
       t1.clear();
+      asd();
     });
   }
 
@@ -70,7 +75,7 @@ class _homepageState extends State<homepage> {
                         ),
                         height: 75,
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
+                          padding: const EdgeInsets.only(left: 20, right: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -84,6 +89,7 @@ class _homepageState extends State<homepage> {
                                 onPressed: () {
                                   setState(() {
                                     hehe.removeAt(index);
+                                    asd();
                                   });
                                 },
                               )
