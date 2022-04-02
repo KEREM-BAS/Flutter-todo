@@ -25,6 +25,7 @@ class _homepageState extends State<homepage> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
+        backgroundColor: secendcolor,
         onPressed: add,
         child: const Icon(
           Icons.add,
@@ -36,18 +37,21 @@ class _homepageState extends State<homepage> {
         padding: const EdgeInsets.only(top: 30),
         child: Column(
           children: [
-            TextField(
-              decoration: InputDecoration(
-                enabled: false,
-                hintText: "Task",
-                fillColor: textcolor,
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  enabled: false,
+                  hintText: "Task",
+                  fillColor: textcolor,
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                 ),
+                style: const TextStyle(color: secendcolor),
+                controller: t1,
               ),
-              style: const TextStyle(color: secendcolor),
-              controller: t1,
             ),
             Flexible(
               child: ListView.builder(
@@ -67,11 +71,11 @@ class _homepageState extends State<homepage> {
                             children: [
                               Text(
                                 hehe[index],
-                                style: TextStyle(color: textcolor),
+                                style: const TextStyle(color: textcolor),
                               ),
                               IconButton(
                                 color: Colors.red,
-                                icon: Icon(Icons.remove),
+                                icon: const Icon(Icons.remove),
                                 onPressed: () {
                                   setState(() {
                                     hehe.removeAt(index);
