@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/config/colors.dart';
 
 class homepage extends StatefulWidget {
@@ -38,7 +39,7 @@ class _homepageState extends State<homepage> {
       ),
       backgroundColor: maincolor,
       body: Padding(
-        padding: const EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.only(top: 50),
         child: Column(
           children: [
             Padding(
@@ -80,7 +81,10 @@ class _homepageState extends State<homepage> {
                             children: [
                               Text(
                                 hehe[index],
-                                style: const TextStyle(color: textcolor),
+                                style: const TextStyle(
+                                  color: textcolor,
+                                  overflow: TextOverflow.clip,
+                                ),
                               ),
                               IconButton(
                                 color: Colors.red,
